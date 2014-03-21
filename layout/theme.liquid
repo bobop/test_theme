@@ -1,0 +1,35 @@
+<!doctype html>
+<head>
+  
+  <title>Hello Chaps</title>
+  {{ 'stylesheets/application.css' | asset_url | stylesheet_tag }}
+  {{ 'javascripts/application.js' | asset_url | javascript_tag }}
+  {% content_for_header %}
+</head>
+<body>
+  {% admin_content %}
+  <h1>THEME7 header</h1>
+  {% if user %}
+    {{ 'Sign Out' | logout_link}} | {{ 'Edit Profile' | profile_link }} | {{ 'My Account' | account_link }}
+  {% else %}
+    {{ 'Sign In' | login_link}} {{ 'Sign Up' | register_link }}
+  {% endif %}
+  <br>
+  
+  <div style='background: #e1e1e1; padding: 10px;'>
+    {{ 'super burgers' | rob }}
+  </div>
+
+  {{ content_for_layout }}
+
+  <p>GLOBAL: {{ global }}</p>
+
+  {% lava 'text_cms' %}
+
+  <p>{{ user.email }}</p>
+
+  <br>
+  <b>THEME7 footer here</b>
+  {% include 'search' %}
+</body>
+</html>

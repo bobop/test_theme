@@ -1,0 +1,20 @@
+<h2>Your Profile</h2>
+
+{% form 'update_customer' %}
+  {% include 'folder/errors' %}
+
+  <div><label for="user_user_profile_attributes_first_name">First Name</label><br>
+  <input id="user_user_profile_attributes_first_name" name="user[user_profile_attributes][first_name]" class="required" required="required" aria-required="true" value="{% if form.user %}{{ form.user.user_profile_attributes.first_name }}{% else %}{{ user.first_name }}{% endif %}"></div>
+
+  <div><label for="user_user_profile_attributes_last_name">Last Name</label><br>
+  <input id="user_user_profile_attributes_last_name" name="user[user_profile_attributes][last_name]" class="required" required="required" aria-required="true" value="{% if form.user %}{{ form.user.user_profile_attributes.last_name }}{% else %}{{ user.last_name }}{% endif %}"></div>
+
+  <div><label for="user_email">Email</label><br>
+  <input autofocus="autofocus" id="user_email" name="user[email]" type="email" class="required" required="required" aria-required="true" value="{% if form.user %}{{ form.user.email }}{% else %}{{ user.email }}{% endif %}"></div>
+
+  {% registration_field 'Phone' %}
+
+  {% linkedin_storage_notice %}
+
+  <div><input name="commit" type="submit" value="Save Profile"></div>
+{% endform %}

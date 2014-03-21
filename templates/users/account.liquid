@@ -1,0 +1,36 @@
+<h1>Welcome {{ users_name }}</h1>
+
+<p><a href="/job-search">Search for Jobs</a></p>
+
+<h2>Saved Searches</h2>
+
+{% form 'delete_search' %}
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Saved Searches</th>
+        <th>Jobs Found</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for search in saved_searches %}
+      <tr>
+        <td>
+          <input class="delete_search" id="searches_" name="searches[]" type="checkbox" value="{{ search.id }}">
+        </td>
+        <td>
+          {{ search.query }}
+          {% if search.location %}in {{ search.location }}{% endif %}
+        </td>
+        <td>{{ search.result_count }}</td>
+        <td><a href="{{ search | search_url }}">View Jobs</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <div class="actions">
+    <input class="btn" id="delete_selected" name="commit" type="submit" value="Delete Selected">
+  </div>
+{% endform %}

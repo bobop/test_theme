@@ -1,0 +1,10 @@
+{% if form.errors %}
+  <div class="errors" style='background: red; color: white;'>
+    <h2>Whoops</h2>
+    <ul>
+      {% for text in form.errors %}
+        <li>{{ text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

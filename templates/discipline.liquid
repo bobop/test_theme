@@ -1,0 +1,11 @@
+<h2>DISCIPLINE PAGE FOR {{discipline.name }}</h2>
+
+{% for job in jobs %}
+  <h3>{{ job | job_link }}</h3>
+  <p>{{job.location}} | {{ job.created_at | distance_of_time }}</p>
+{% endfor %}
+
+{% for consultant in discipline.consultants %}
+  <h3>{{ consultant | consultant_link }}</h3>
+  <p>{{ consultant.image | library_img_tag: '100x100#' }}</p>
+{% endfor %}

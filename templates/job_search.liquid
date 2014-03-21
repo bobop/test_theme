@@ -1,0 +1,8 @@
+<h2>Job Search</h2>
+
+{% for job in jobs %}
+  <h3>{{ job | job_link }}</h3>
+  <p>{{job.location}} | {{ job.created_at | distance_of_time }}</p>
+{% endfor %}
+
+{{ pagination_html }}

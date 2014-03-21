@@ -1,0 +1,9 @@
+{% if results %}
+  <h2>Search Results</h2>
+  {% for job in results %}
+    <h3>{{ job | job_link }}</h3>
+    <p>{{job.location}} | {{ job.created_at | distance_of_time }}</p>
+  {% endfor %}
+{% else %}
+  <h3>No Results, Sorry :)</h3>
+{% endif %}

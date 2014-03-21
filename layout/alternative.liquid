@@ -1,0 +1,22 @@
+<!doctype html>
+<head>
+  
+  <title>Hello Chaps</title>
+  {{ 'stylesheets/application.css' | asset_url | stylesheet_tag }}
+  {% content_for_header %}
+</head>
+<body>
+  <h1>THEME7 header for ALTERNATIVE Layout</h1>
+  {% if user %}
+    {{ 'Sign Out' | logout_link}}
+  {% else %}
+    {{ 'Sign In' | login_link}}
+  {% endif %}
+
+  {{ content_for_layout }}
+
+  <br>
+  <h2>GLOBAL: {{ global }}</h2>
+  <b>THEME7 footer here</b>
+</body>
+</html>

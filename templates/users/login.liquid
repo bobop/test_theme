@@ -1,0 +1,19 @@
+{% layout 'alternative' %}
+<h2>Login</h2>
+
+{{ 'Login With LinkedIn' | linkedin_link }}
+
+{% form 'login_customer' %}
+  {% include 'folder/errors' %}
+
+  <div><label for="user_email">Email</label><br>
+  <input autofocus="autofocus" id="user_email" name="user[email]" type="email" value="{% if form.user %}{{ form.user.email }}{% endif %}"></div>
+
+  <div><label for="user_password">Password</label><br>
+  <input id="user_password" name="user[password]" type="password"></div>
+
+  <div><input name="commit" type="submit" value="Login"></div>
+
+{% endform %}
+
+{{ 'Forgotten Password?' | forgot_password_link }}

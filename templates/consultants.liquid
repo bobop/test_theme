@@ -1,0 +1,10 @@
+<h2>THE CONSULTANTS INDEX</h2>
+
+{% for c in consultants %}
+  <h3>{{ c | consultant_link }}</h3>
+  <p>{{ c.email_address }}</p>
+  <p>{{ c.position }}</p>
+  <p>{{ c.twitter_username }}</p>
+  <p>{{ c.linkedin_profile_urlc }}</p>
+  <p>{{ c.disciplines_sentence }}</p>
+{% endfor %}

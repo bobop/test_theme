@@ -1,0 +1,40 @@
+<h1>Welcome</h1>
+
+<p>'application' path: {{ "stylesheets/application.css" | asset_url }}</p>
+
+<p>{{ "images/background.jpg" | asset_url }}</p>
+
+<p>{{ "images/ben.jpg" | asset_url | img_tag }}</p>
+
+<p>{% lava_img 'home_image_2', '300x300#'  %}</p>
+
+<p>{% lava_img 'home_image', '100x100#'  %}</p>
+
+<p>LAVA: {% lava 'text_cms' %}</p>
+
+{% for tweet in test_tweets %}
+  <p>{{ tweet.name }}</p>
+  <p>{{ tweet.message }}</p>
+{% endfor %}
+
+<h3>All Disciplines</h3>
+{% for d in all_disciplines %}
+  <a href="{{ d | discipline_url }}">
+    <h4>{{ d.name }}</h4>
+  </a>
+{% endfor %}
+
+<h3>All Jobs</h3>
+{% for job in all_jobs %}
+  <h3>{{ job | job_link }}</h3>
+  <p>{{job.location}} | {{ job.created_at | distance_of_time }}</p>
+{% endfor %}
+
+<h3>All Blogs</h3>
+{% for blog in all_blogs %}
+  <a href="{{ blog | blog_url }}">
+    <h3>{{ blog.title }}</h3>
+    <small>{{ blog.publish_date | distance_of_time }} by {{ blog.user.name }}. Tags: {{ blog.tag_sentence }}</small>
+    <p>{{ blog.description | truncate: 150 }}</p>
+  </a>
+{% endfor %}

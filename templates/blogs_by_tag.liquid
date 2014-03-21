@@ -1,0 +1,9 @@
+<h2>THE INDEX FOR {{ tag.name }}</h2>
+
+{% for blog in blogs_by_tag %}
+  <a href="{{ blog | blog_url }}">
+    <h3>{{ blog.title }}</h3>
+    <small>{{ blog.publish_date | distance_of_time }} by {{ blog.user.name }}. Tags: {{ blog.tag_sentence }}</small>
+    <p>{{ blog.description | truncate_to: 150 }}</p>
+  </a>
+{% endfor %}

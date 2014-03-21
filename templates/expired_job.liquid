@@ -1,0 +1,20 @@
+<h2>EXPIRED JOB PAGE</h2>
+
+<h3>{{ job.job_title }}</h3>
+<small>{{ job.job_reference }}</small>
+
+{{ job_description }}
+
+<p>Job Type: {{ job.job_type.name }}</p>
+
+<p>Sector: {{ job.disciplines }}</p>
+
+<p>Published: {{ job.created_at | distance_of_time }}</p>
+
+<p>Location: {{ job.location }}</p>
+
+{% include 'lite_similar_jobs' %}
+
+<h1>EXPIRED!!!</h1>
+
+<h2><a href="{{ job | apply_url }}" data-confirm="Apply for this Role?" data-method="post" rel="nofollow">Apply Now!</a></h2>

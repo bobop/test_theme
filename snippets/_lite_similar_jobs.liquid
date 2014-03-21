@@ -1,0 +1,7 @@
+<h2>Similar Jobs</h2>
+
+{% for job in similar_jobs %}
+  <p>
+    {{job.job_title}}<br />{{job.location | make_italics}}
+  </p>
+{% endfor %}

@@ -1,0 +1,10 @@
+<h2>A BLOG PAGE</h2>
+
+<h3>{{ blog.title }}</h3>
+<small>{{ blog.publish_date | distance_of_time }} by {{ blog.user.name }}</small>
+
+<p>{% lava_img 'blog_image', '800x200#'  %}</p>
+
+{% lava 'blog_body' %}
+
+<p>Tags: {{ blog.tag_sentence }}</p>

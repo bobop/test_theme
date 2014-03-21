@@ -1,0 +1,21 @@
+{% form 'search' %}
+  <div class="controls">
+    <input class="string optional" id="search_query" name="search[query]" placeholder="Keyword" size="50" type="text">
+    <p class="help-block">Job title or keywords</p>
+  </div>
+  <div class="controls">
+    <input class="string optional" id="search_location" name="search[location]" placeholder="Location" size="50" type="text">
+    <p class="help-block">Country, City or postcode</p>
+  </div>
+  <div class="controls">
+    <input class="numeric integer optional" id="search_salary_low" name="search[salary_low]" placeholder="£ MIN" step="1" type="number">
+  </div>
+  <div class="controls">
+    <input class="numeric integer optional" id="search_salary_high" name="search[salary_high]" placeholder="£ MAX" step="1" type="number">
+  </div>
+  <div class="controls">{% search_radios %}</div>
+  
+  {% search_select 'job_types' %}
+  {% search_select 'disciplines' %}
+  <input class="btn btn-large search-btn" name="commit" type="submit" value="Search">
+{% endform %}
