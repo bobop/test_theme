@@ -1,11 +1,3 @@
-Testing pre-receive hook
+## Volcanic Test Theme
 
-fixing rbenv PATH
-
-oliver now using multi_json 1.7.8
-
-testing precompilation of specific theme
-
-hopefully assets from this repo will be precompiled
-
-create theme7 folder anew
+This needs to be in your themes folder for the Volcanic test suite to work.
